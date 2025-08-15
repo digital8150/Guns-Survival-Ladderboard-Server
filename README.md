@@ -1,121 +1,121 @@
-# Guns Survival Online Leaderboard Backend
+# Guns Survival 온라인 리더보드 백엔드
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.111.0-009688?style=for-the-badge&logo=fastapi)
-![Uvicorn](https://img.shields.io/badge/Uvicorn-0.30.1-F76900?style=for-the-badge&logo=uvicorn)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite)
+FastAPI를 사용하여 구축하고 SQLite를 활용하는 Guns Survival 온라인 리더보드를 위한 간단한 백엔드 서버입니다. 이 프로젝트는 새로운 항목 추가, 상위 점수 검색, 특정 플레이어 주변의 점수 조회 등 플레이어 점수 관리를 위한 필수적인 API 엔드포인트를 제공합니다.
 
-A simple yet robust backend server for the Guns Survival online leaderboard, built with FastAPI and utilizing SQLite for data persistence. This project provides essential API endpoints for managing player scores, including adding new entries, retrieving top scores, and querying scores around a specific player.
+## ✨ 기능 (Features)
 
-## ✨ Features
+  - **포괄적인 점수 데이터:** 각 점수 항목에는 고유 ID, 등록 타임스탬프, 점수 값, 생존 시간, 플레이어 닉네임이 포함됩니다.
+  - **상위 10위 리더보드:** 가장 높은 점수 상위 10개를 쉽게 가져옵니다.
+  - **점수 제출:** 플레이어가 자신의 점수를 제출할 수 있는 API 엔드포인트입니다.
+  - **맥락적 점수 검색:** 특정 플레이어의 항목 주변 점수를 가져와 리더보드 내에서 맥락을 제공합니다.
+  - **점수 삭제:** 개별 점수 항목을 제거하는 기능입니다.
+  - **리더보드 초기화:** 리더보드의 모든 점수를 지우는 옵션입니다.
+  - **데이터 영속성:** 모든 점수 데이터는 서버 재시작 시에도 손실되지 않도록 SQLite를 사용하여 지속적으로 저장됩니다.
 
--   **Comprehensive Score Data:** Each score entry includes a unique ID, registration timestamp, score value, survival time, and player nickname.
--   **Top 10 Leaderboard:** Easily retrieve the top 10 highest scores.
--   **Score Submission:** API endpoint for players to submit their scores.
--   **Contextual Score Retrieval:** Fetch scores around a specific player's entry, providing context within the leaderboard.
--   **Score Deletion:** Ability to remove individual score entries.
--   **Leaderboard Reset:** Option to clear all scores from the leaderboard.
--   **Data Persistence:** All score data is stored persistently using SQLite, ensuring data is not lost upon server restarts.
+## 🚀 기술 스택 (Technology Stack)
 
-## 🚀 Technology Stack
+  - **Python**: 핵심 프로그래밍 언어입니다.
+  - **FastAPI**: 표준 Python 타입 힌트를 기반으로 Python 3.7+에서 API를 구축하기 위한 현대적이고 빠른(고성능) 웹 프레임워크입니다.
+  - **Pydantic**: 데이터 유효성 검사 및 설정 관리에 사용되어 강력하고 type-safe한 API 요청 및 응답을 보장합니다.
+  - **SQLite**: 별도의 데이터베이스 서버 없이도 간단하고 내장된 데이터 저장에 완벽한 경량 파일 기반 관계형 데이터베이스입니다.
+  - **Uvicorn**: 비동기 작업을 위해 FastAPI 애플리케이션에 전력을 공급하는 ASGI 서버입니다.
 
--   **Python**: The core programming language.
--   **FastAPI**: A modern, fast (high-performance) web framework for building APIs with Python 3.7+ based on standard Python type hints.
--   **Pydantic**: Used for data validation and settings management, ensuring robust and type-safe API requests and responses.
--   **SQLite**: A lightweight, file-based relational database, perfect for simple, embedded data storage without the need for a separate database server.
--   **Uvicorn**: An ASGI server, powering the FastAPI application for asynchronous operations.
+## ⚡ 빠른 시작 (Quick Start)
 
-## ⚡ Quick Start
+로컬 머신에서 리더보드 서버를 실행하거나 배포를 위해 준비하려면 다음 단계를 따르세요.
 
-Follow these steps to get the leaderboard server up and running on your local machine or prepare it for deployment.
+### 전제 조건 (Prerequisites)
 
-### Prerequisites
+  - Python 3.9+ (권장)
+  - `pip` (Python 패키지 설치 프로그램)
 
--   Python 3.9+ (Recommended)
--   `pip` (Python package installer)
+### 설치 (Installation)
 
-### Installation
-
-1.  **Clone the repository:**
+1.  **저장소(repository) 복제:**
     ```bash
-    git clone https://github.com/your-username/guns-survival-online-ladder-board.git # Replace with your actual repo URL
+    git clone https://github.com/your-username/guns-survival-online-ladder-board.git # 실제 저장소 URL로 교체하세요
     cd guns-survival-online-ladder-board
     ```
-
-2.  **Install dependencies:**
+2.  **의존성 설치:**
     ```bash
     pip install -r requirements.txt
     ```
 
-### Running the Server
+### 서버 실행 (Running the Server)
 
-To start the FastAPI server:
+FastAPI 서버를 시작하려면:
 
 ```bash
 uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
-The server will be accessible at `http://localhost:8000`.
+서버는 `http://localhost:8000`에서 접근할 수 있습니다.
 
-### API Documentation
+### API 문서 (API Documentation)
 
-Once the server is running, you can access the interactive API documentation (Swagger UI) at:
+서버가 실행되면 다음 주소에서 대화형 API 문서(Swagger UI)에 액세스할 수 있습니다.
 
-[http://localhost:8000/docs](http://localhost:8000/docs)
+[http://localhost:8000/docs](https://www.google.com/search?q=http://localhost:8000/docs)
 
-### Deployment on ARM Linux
+### ARM Linux에 배포 (Deployment on ARM Linux)
 
-Deploying to an ARM Linux server (e.g., Raspberry Pi, AWS Graviton) involves similar steps:
+ARM Linux 서버(예: Raspberry Pi, AWS Graviton)에 배포하는 과정은 비슷한 단계를 따릅니다. Oracle Cloud Infrasturcture 가 제공하는 무료티어 ARM Linux VM에서도 잘 동작합니다.
 
-1.  **Install Python and pip:** Ensure Python 3.9+ and pip are installed on your ARM Linux machine.
+1.  **Python 및 pip 설치:** ARM Linux 머신에 Python 3.9+ 및 pip가 설치되어 있는지 확인하세요.
     ```bash
     sudo apt update
     sudo apt install python3 python3-pip
     ```
-2.  **Clone the repository:**
+2.  **저장소 복제:**
     ```bash
-    git clone https://github.com/your-username/guns-survival-online-ladder-board.git # Replace with your actual repo URL
+    git clone https://github.com/your-username/guns-survival-online-ladder-board.git # 실제 저장소 URL로 교체하세요
     cd guns-survival-online-ladder-board
     ```
-3.  **Install dependencies:**
+3.  **의존성 설치:**
     ```bash
     pip install -r requirements.txt
     ```
-4.  **Run the server:** You might want to use a process manager like `systemd` or `supervisor` for production environments to keep the server running reliably.
+4.  **서버 실행:** 프로덕션 환경에서는 서버를 안정적으로 실행하기 위해 `systemd` 또는 `supervisor`와 같은 프로세스 관리자를 사용하는 것이 좋습니다.
     ```bash
     uvicorn main:app --host 0.0.0.0 --port 8000
     ```
 
-## 📚 API Endpoints
+## 📚 API 엔드포인트 (API Endpoints)
 
-Here's a brief overview of the available API endpoints:
+사용 가능한 API 엔드포인트에 대한 간략한 개요입니다.
 
--   **`GET /`**
-    -   Returns a welcome message.
+  - **`GET /`**
 
--   **`GET /leaderboard/top10`**
-    -   Retrieves the top 10 scores from the leaderboard, sorted by score in descending order.
+      - 환영 메시지를 반환합니다.
 
--   **`POST /leaderboard`**
-    -   Submits a new score entry to the leaderboard.
-    -   **Request Body:**
+  - **`GET /leaderboard/top10`**
+
+      - 리더보드에서 상위 10개 점수를 내림차순으로 정렬하여 가져옵니다.
+
+  - **`POST /leaderboard`**
+
+      - 리더보드에 새로운 점수 항목을 제출합니다.
+      - **요청 본문 (Request Body):**
         ```json
         {
-            "score": 12345,
-            "survival_time": 300,
-            "nickname": "PlayerOne"
+          "score": 12345,
+          "survival_time": 300,
+          "nickname": "PlayerOne"
         }
         ```
 
--   **`GET /leaderboard/{score_id}/around`**
-    -   Retrieves 10 score entries around a specific `score_id` (4 before, the target ID, and 5 after), sorted by score.
+  - **`GET /leaderboard/{score_id}/around`**
 
--   **`DELETE /leaderboard/{score_id}`**
-    -   Deletes a specific score entry from the leaderboard using its `score_id`.
+      - 특정 `score_id` 주변의 점수 항목 10개(대상 ID 이전 4개, 대상 ID, 이후 5개)를 점수 순으로 정렬하여 가져옵니다.
 
--   **`DELETE /leaderboard`**
-    -   Resets the entire leaderboard, deleting all score entries.
+  - **`DELETE /leaderboard/{score_id}`**
 
----
+      - `score_id`를 사용하여 리더보드에서 특정 점수 항목을 삭제합니다.
 
-_Developed with ❤️ by Your Name/Team_ # Replace with your name or team name
+  - **`DELETE /leaderboard`**
+
+      - 전체 리더보드를 초기화하고 모든 점수 항목을 삭제합니다.
+
+-----
+
+*Developed with ❤️ by Your Name/Team* \# 이름 또는 팀 이름으로 교체하세요
