@@ -1,4 +1,8 @@
 # Guns Survival 온라인 리더보드 백엔드
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.111.0-009688?style=for-the-badge&logo=fastapi)
+![Uvicorn](https://img.shields.io/badge/Uvicorn-0.30.1-F76900?style=for-the-badge&logo=uvicorn)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite)
 
 FastAPI를 사용하여 구축하고 SQLite를 활용하는 Guns Survival 온라인 리더보드를 위한 간단한 백엔드 서버입니다. 이 프로젝트는 새로운 항목 추가, 상위 점수 검색, 특정 플레이어 주변의 점수 조회 등 플레이어 점수 관리를 위한 필수적인 API 엔드포인트를 제공합니다.
 
