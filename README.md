@@ -117,5 +117,3 @@ ARM Linux 서버(예: Raspberry Pi, AWS Graviton)에 배포하는 과정은 비�
       - 전체 리더보드를 초기화하고 모든 점수 항목을 삭제합니다.
 
 -----
-
-*Developed with ❤️ by Your Name/Team* \# 이름 또는 팀 이름으로 교체하세요
