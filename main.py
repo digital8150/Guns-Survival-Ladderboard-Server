@@ -10,7 +10,7 @@ app = FastAPI()
 DATABASE_URL = "leaderboard.db"
 
 def get_db():
-    conn = sqlite3.connect(DATABASE_URL)
+    conn = sqlite3.connect(DATABASE_URL, check_same_thread=False) # Added check_same_thread=False
     conn.row_factory = sqlite3.Row # This allows accessing columns by name
     try:
         yield conn
@@ -32,7 +32,7 @@ def create_table(db: sqlite3.Connection):
 
 @app.on_event("startup")
 def startup_event():
-    conn = sqlite3.connect(DATABASE_URL)
+    conn = sqlite3.connect(DATABASE_URL, check_same_thread=False) # Added check_same_thread=False
     create_table(conn)
     conn.close()
 
